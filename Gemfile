@@ -32,6 +32,7 @@ gem 'devise'
 
 gem "simple_calendar", "~> 2.4"
 
+gem 'tod'
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
