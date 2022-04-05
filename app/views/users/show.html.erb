@@ -1,1 +1,7 @@
 <h1> Welcome, <%= @user.first_name.capitalize %>!</h1>
+<h2>What would you like to do?</h2>
+
+<p>Book consultation</p>
+<p><%= link_to 'View upcoming consultations', user_consultations_path(@user) %></p>
+
+<p>Access internal messaging service</p>
