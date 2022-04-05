@@ -1,0 +1,29 @@
+
+<h1>Hello <%= current_user.first_name %> <%= current_user.last_name %></h1>
+<h2>Upcoming consultations</h2>
+
+<%= week_calendar(events: @consultations) do |date, consultations| %>
+  <%= date %>
+
+  <% consultations.each do |consultation| %>
+    <div class="consultation">
+
+      <%# Displays the person's name for consultation dependending on if current user is doc or patient %>
+      <% if current_user.id == consultation.patient_id %>
+        <p>consultation with Doctor:</p>
+        <% consultation_doctor = User.find(consultation.doctor_id) %>
+        <p><%= consultation_doctor.first_name %> <%= consultation_doctor.last_name %></p>
+      <% else %>
+        <p>consultation with Patient:</p>
+        <% consultation_patient = User.find(consultation.patient_id) %>
+        <p><%= consultation_patient.first_name %> <%= consultation_patient.last_name %></p>
+      <% end %>
+
+      <p>Time:</p>
+      <%= consultation.start_time.strftime("%I:%M%p") %>
+
+      <p>Reason:</p>
+      <%= consultation.reason %>
+    </div>
+  <% end %>
+<% end %>
