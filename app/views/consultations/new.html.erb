@@ -1,0 +1,30 @@
+
+<h1>Hello <%= current_user.first_name %> <%= current_user.last_name %></h1>
+<h2>Book a consultation</h2>
+
+<%= week_calendar(events: @consultations) do |date, consultations| %>
+  <%= date %>
+
+  <% slot = Tod::TimeOfDay.new 9 %>
+  <% end_of_day = Tod::TimeOfDay.new 17%>
+  <% while slot <= end_of_day %>
+
+      <%# if there is a consultation with start_time = slot ON THAT DAY, diplay unavaiable  %>
+ <!--
+      <% if slot.strftime("%H:%M") == Consultation.where(start_time.strftime("%H:%M"): slot.strftime("%H:%M")) %>
+        <p>unavaible</p>
+      <% else %>
+        <%= slot %>
+      <% end %> -->
+
+    <%= slot %>
+    <% slot = slot + 900 %>
+
+  <% end %>
+<% end %>
+
+
+
+<%# Display every 15 min block %>
+<%# if no consultation booked, display book button %>
+<%# if consultation book, display unavaible %>

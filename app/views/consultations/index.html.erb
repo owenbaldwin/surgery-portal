@@ -20,7 +20,9 @@
       <% end %>
 
       <p>Time:</p>
-      <%= consultation.start_time.strftime("%I:%M%p") %>
+      <%# <%= consultation.start_time.strftime("%I:%M%p") %>
+      <%= consultation.start_time.strftime("%H:%M") %>
+
 
       <p>Reason:</p>
       <%= consultation.reason %>

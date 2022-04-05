@@ -11,4 +11,16 @@ class ConsultationsController < ApplicationController
     # Or, for a weekly view:
     @consultations = Consultation.where(start_time: start_date.beginning_of_week..start_date.end_of_week)
   end
+
+  def new
+    @consultation = Consultation.new
+    start_date = params.fetch(:start_date, Date.today).to_date
+    @consultations = Consultation.where(start_time: start_date.beginning_of_week..start_date.end_of_week)
+
+
+  end
+
+  def create
+
+  end
 end
