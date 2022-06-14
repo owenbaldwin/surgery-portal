@@ -1,0 +1,61 @@
+<%# Old booking system NOT WORKING %>
+
+
+<%= week_calendar(events: @consultations) do |date, consultations| %>
+  <%= date %>
+
+  <% slot = Tod::TimeOfDay.new 9 %>
+  <% end_of_day = Tod::TimeOfDay.new 17%>
+  <% while slot <= end_of_day %>
+      <% cons = Consultation.where(start_time: slot) %>
+      <%# if there is a consultation with start_time = slot ON THAT DAY, diplay unavaiable  %>
+      <% if cons %>
+        <p>unavaible</p>
+      <% else  %>
+        <%= slot %>
+      <%# <%= cons %>
+        <p>book</p>
+      <% end %>
+
+       <%# <%= slot %>
+
+    <%# +900 stands for +15 mins %>
+    <% slot = slot + 900 %>
+
+  <% end %>
+<% end %>
+
+
+
+
+
+<%# Old appointment displaying system %>
+
+
+<%= week_calendar(events: @consultations) do |date, consultations| %>
+  <%= date %>
+
+  <% consultations.each do |consultation| %>
+    <div class="consultation">
+
+      <%# Displays the person's name for consultation dependending on if current user is doc or patient %>
+      <% if current_user.id == consultation.patient_id %>
+        <p>consultation with Doctor:</p>
+        <% consultation_doctor = User.find(consultation.doctor_id) %>
+        <p><%= consultation_doctor.first_name %> <%= consultation_doctor.last_name %></p>
+      <% else %>
+        <p>consultation with Patient:</p>
+        <% consultation_patient = User.find(consultation.patient_id) %>
+        <p><%= consultation_patient.first_name %> <%= consultation_patient.last_name %></p>
+      <% end %>
+
+      <p>Time:</p>
+      <%# <%= consultation.start_time.strftime("%I:%M%p") %>
+      <%= consultation.start_time.strftime("%H:%M") %>
+
+
+      <p>Reason:</p>
+      <%= consultation.reason %>
+    </div>
+  <% end %>
+<% end %>

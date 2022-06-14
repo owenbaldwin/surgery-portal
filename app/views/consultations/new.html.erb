@@ -2,29 +2,22 @@
 <h1>Hello <%= current_user.first_name %> <%= current_user.last_name %></h1>
 <h2>Book a consultation</h2>
 
-<%= week_calendar(events: @consultations) do |date, consultations| %>
-  <%= date %>
-
-  <% slot = Tod::TimeOfDay.new 9 %>
-  <% end_of_day = Tod::TimeOfDay.new 17%>
-  <% while slot <= end_of_day %>
-
-      <%# if there is a consultation with start_time = slot ON THAT DAY, diplay unavaiable  %>
- <!--
-      <% if slot.strftime("%H:%M") == Consultation.where(start_time.strftime("%H:%M"): slot.strftime("%H:%M")) %>
-        <p>unavaible</p>
-      <% else %>
-        <%= slot %>
-      <% end %> -->
-
-    <%= slot %>
-    <% slot = slot + 900 %>
-
-  <% end %>
-<% end %>
-
-
+<!-- Calendly link widget begin -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/owenabaldwin'});return false;">Schedule time with Doctor Owen</a>
+<!-- Calendly link widget end -->
 
 <%# Display every 15 min block %>
 <%# if no consultation booked, display book button %>
 <%# if consultation book, display unavaible %>
+
+
+<%# https://www.ruby-toolbox.com/projects/icalendar %>
+
+
+<%# Calendly for bookings %>
+<%# Google calendar for displaying bookings %>
+<%# https://calendly.com/landing/signup?utm_source=google&utm_medium=cpc&utm_campaign=17106204901&utm_term=online%20appointment%20scheduling%20software&utm_content=134607321005&gclid=CjwKCAjw46CVBhB1EiwAgy6M4sxfYT8rM9xhAzeXlfPZvHWdI0moa4jYmsyW6jKXVdQcGi0im8QKMBoCNtAQAvD_BwE %>
+<%# https://support.google.com/calendar/answer/41207?hl=en %>
+<%# https://calendar.google.com/calendar/u/0/embedhelper?src=owenabaldwin%40gmail.com&ctz=Europe%2FLondon %>

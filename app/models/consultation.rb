@@ -4,4 +4,5 @@ class Consultation < ApplicationRecord
   # require 'tod'
 
   # serialize :tod_attribute, Tod::TimeOfDay
+
 end

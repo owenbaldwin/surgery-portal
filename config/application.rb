@@ -1,5 +1,5 @@
-require_relative 'boot'
-require 'tod'
+# require_relative 'boot'
+# require 'tod'
 
 require 'rails/all'
 
