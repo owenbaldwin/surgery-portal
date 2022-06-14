@@ -2,30 +2,4 @@
 <h1>Hello <%= current_user.first_name %> <%= current_user.last_name %></h1>
 <h2>Upcoming consultations</h2>
 
-<%= week_calendar(events: @consultations) do |date, consultations| %>
-  <%= date %>
-
-  <% consultations.each do |consultation| %>
-    <div class="consultation">
-
-      <%# Displays the person's name for consultation dependending on if current user is doc or patient %>
-      <% if current_user.id == consultation.patient_id %>
-        <p>consultation with Doctor:</p>
-        <% consultation_doctor = User.find(consultation.doctor_id) %>
-        <p><%= consultation_doctor.first_name %> <%= consultation_doctor.last_name %></p>
-      <% else %>
-        <p>consultation with Patient:</p>
-        <% consultation_patient = User.find(consultation.patient_id) %>
-        <p><%= consultation_patient.first_name %> <%= consultation_patient.last_name %></p>
-      <% end %>
-
-      <p>Time:</p>
-      <%# <%= consultation.start_time.strftime("%I:%M%p") %>
-      <%= consultation.start_time.strftime("%H:%M") %>
-
-
-      <p>Reason:</p>
-      <%= consultation.reason %>
-    </div>
-  <% end %>
-<% end %>
+<iframe src="https://calendar.google.com/calendar/embed?height=700&wkst=2&bgcolor=%23ffffff&ctz=Europe%2FLondon&showNav=1&mode=WEEK&src=b3dlbmFiYWxkd2luQGdtYWlsLmNvbQ&src=ajdobDN2YzA5YjFidDdhMm80c29ubjJiamNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=YWI0ZThqMGo0dGJmZTdtZzI2bW1ldGIzYTRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4uY2gjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23039BE5&color=%23D81B60&color=%23D50000&color=%2333B679&color=%230B8043" style="border:solid 1px #777" width="1000" height="700" frameborder="0" scrolling="no"></iframe>

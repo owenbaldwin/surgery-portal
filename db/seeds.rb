@@ -15,7 +15,7 @@ patient1 = User.create(email: "patient1@email.com", password: "123123", first_na
 puts "patient1 created"
 
 
-consultime1 = DateTime.new(2022, 4, 6, 10, 30, 0)
+consultime1 = DateTime.new(2022, 6, 15, 10, 30, 0)
 puts "consultime1 created"
 
 consul1 = Consultation.create(doctor_id: doc1.id, patient_id: patient1.id, start_time: consultime1, reason: "sickysicksick")
