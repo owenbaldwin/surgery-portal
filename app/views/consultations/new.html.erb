@@ -2,11 +2,20 @@
 <h1>Hello <%= current_user.first_name %> <%= current_user.last_name %></h1>
 <h2>Book a consultation</h2>
 
-<!-- Calendly link widget begin -->
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-<a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/owenabaldwin'});return false;">Schedule time with Doctor Owen</a>
-<!-- Calendly link widget end -->
+<!-- Book with Doctor Sean Cooke -->
+<div>
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+  <a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/docseancooke'});return false;">Schedule time with Doctor Sean Cooke</a>
+</div>
+
+<!-- Book with Doctor Lawrence Matthews -->
+<div>
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+  <a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/doclawrencematthews'});return false;">Schedule time with Doctor Lawrence Matthews</a>
+</div>
+
 
 <%# Display every 15 min block %>
 <%# if no consultation booked, display book button %>
