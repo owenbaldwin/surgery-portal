@@ -9,14 +9,16 @@
 User.destroy_all
 Consultation.destroy_all
 
-doc1 = User.create(email: "doc1@email.com", password: "123123", first_name: "John", last_name: "McJohn", is_doctor: true )
-puts "doc1 created"
-patient1 = User.create(email: "patient1@email.com", password: "123123", first_name: "Patrick", last_name: "O'Patrick", is_doctor: false )
-puts "patient1 created"
+doc1 = User.create(email: "docseancooke@gmail.com", password: "10et1020", first_name: "Sean", last_name: "Cooke", is_doctor: true )
+puts "Sean Cooke created"
+doc2 = User.create(email: "doclawrencematthews@gmail.com", password: "10et1020", first_name: "Lawrence", last_name: "Matthews", is_doctor: true )
+puts "Lawrence Matthews created"
+patient1 = User.create(email: "patientbernardbrown@gmail.com", password: "10et1020", first_name: "Bernard", last_name: "Brown", is_doctor: false )
+puts "Bernard Brown created"
 
 
-consultime1 = DateTime.new(2022, 6, 15, 10, 30, 0)
-puts "consultime1 created"
+# consultime1 = DateTime.new(2022, 6, 15, 10, 30, 0)
+# puts "consultime1 created"
 
-consul1 = Consultation.create(doctor_id: doc1.id, patient_id: patient1.id, start_time: consultime1, reason: "sickysicksick")
-puts "consul1 created"
+# consul1 = Consultation.create(doctor_id: doc1.id, patient_id: patient1.id, start_time: consultime1, reason: "sickysicksick")
+# puts "consul1 created"
