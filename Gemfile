@@ -29,10 +29,18 @@ gem 'redis', '~> 4.0'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
+# gem 'omniauth'
+# gem 'omniauth-google-oauth2'
+# gem 'omniauth-rails_csrf_protection', '~> 1.0'
+
+
 
 gem "simple_calendar"
 
-gem 'tod'
+# gem 'tod'
+
+# gem 'google_sign_in'
+
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'

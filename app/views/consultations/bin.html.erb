@@ -4,8 +4,8 @@
 <%= week_calendar(events: @consultations) do |date, consultations| %>
   <%= date %>
 
-  <% slot = Tod::TimeOfDay.new 9 %>
-  <% end_of_day = Tod::TimeOfDay.new 17%>
+  <%# <% slot = Tod::TimeOfDay.new 9 %>
+  <%# <% end_of_day = Tod::TimeOfDay.new 17%> %> %>
   <% while slot <= end_of_day %>
       <% cons = Consultation.where(start_time: slot) %>
       <%# if there is a consultation with start_time = slot ON THAT DAY, diplay unavaiable  %>
